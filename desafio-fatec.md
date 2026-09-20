@@ -1,7 +1,26 @@
 # Desafio de Design Thinking: melhorando a experiência dos alunos da FATEC
 
 **Objeto de estudo:** SIGA (sistema acadêmico da FATEC)
-**Método:** análise de 7 prints de tela + etapas de Design Thinking (problema, entrevista, persona, definição, ideias e solução)
+**Método:** análise de 7 prints de tela + etapas de Design Thinking (problema, entrevista, persona, definição, ideias e solução) + protótipo navegável em HTML, CSS e JS
+
+---
+
+## Sobre o projeto
+
+**O que é:** um trabalho acadêmico de Design Thinking que responde ao desafio "melhorar a experiência dos alunos da FATEC". O projeto analisa o SIGA, o sistema acadêmico usado pelos alunos, e propõe uma versão redesenhada de algumas telas.
+
+**O que foi feito, em ordem:**
+1. Análise de 7 prints do SIGA, com os pontos fracos de usabilidade (Passo 1).
+2. Escolha de um problema real: a dificuldade de consultar horário e avaliações de forma rápida, principalmente pelo celular (Passo 2).
+3. Perguntas de entrevista, persona hipotética (Roberto Carlos), definição do problema, 10 ideias e a solução escolhida, o calendário "Minha semana" (Passos 3 a 7).
+4. Um **protótipo navegável** com login, tela inicial e horário das aulas, feito só com HTML, CSS e um pouco de JavaScript (seção "Protótipo" no final).
+
+**O que este projeto não é:**
+- Não é um sistema oficial e não tem ligação com a FATEC, o Centro Paula Souza ou o SIGA real.
+- O protótipo não se conecta ao SIGA: o login aceita qualquer coisa (inclusive campos vazios) e todos os dados são fixos, escritos no código.
+- A persona e as suposições ainda não foram validadas com alunos reais.
+
+**Como o documento está organizado:** Passos 1 a 7 (o processo de Design Thinking) e, no final, a seção "Protótipo".
 
 > **Aviso sobre as fontes:** a pasta `prints/` não existia (ou estava vazia) no diretório, então a análise foi feita com as 7 imagens anexadas na conversa, numeradas de 1 a 7 na ordem em que foram enviadas. Tudo o que está aqui vem do que aparece nessas imagens. Quando eu suponho algo, escrevo **(suposição)**.
 > Por privacidade, não reproduzi nome completo nem RA do aluno que aparecem nos prints.
@@ -212,4 +231,59 @@ Usa o celular para quase tudo (aplicativo de banco, transporte, mensagens, agend
 2. **Calendário "Minha semana":** mostra o horário por dia (um dia por vez no celular, semana inteira no computador), com aulas seguidas agrupadas, o dia de hoje em destaque e as avaliações marcadas.
 3. **Detalhe da aula ou avaliação:** ao tocar em um item, mostra a disciplina, o professor, o horário e a data, com botões para ativar lembrete e adicionar à agenda do celular.
 
-> **Próximos passos (fora deste documento):** validar a persona com entrevistas reais, confirmar se as datas de avaliações existem no sistema e só depois desenhar e testar o protótipo com outro grupo.
+> **Próximos passos:** validar a persona com entrevistas reais, confirmar se as datas de avaliações existem no sistema e testar o protótipo com outro grupo (etapa 8 do desafio).
+
+---
+
+## Protótipo (HTML, CSS e JS)
+
+Depois dos 7 passos, foi criado um protótipo navegável para mostrar a ideia funcionando. Ele usa só HTML, CSS e JavaScript simples (sem bibliotecas e sem servidor). Para ver, basta abrir o arquivo `index.html` no navegador.
+
+### Telas feitas
+
+| Arquivo | Tela | O que faz |
+|---|---|---|
+| `index.html` | **Login** | Botão "Entrar" leva direto para o início, mesmo com os campos vazios. O acesso é sempre como Roberto Carlos. |
+| `inicio.html` | **Início** | Mostra os blocos Meu curso, Solicitações (com o selo 6) e Documentos, e o card do aluno com os dados dele. Cada bloco abre e fecha com animação. |
+| `horario.html` | **Horário das aulas** | Mostra a semana de segunda a sexta, com as aulas seguidas agrupadas em um bloco só. |
+
+### Como o protótipo responde ao problema
+
+- **Horário sem repetição:** quatro aulas seguidas da mesma disciplina viram um bloco só (ex.: "15:00 a 18:30, 4 aulas"), corrigindo o ponto de que o horário repete informações (print 7).
+- **Celular primeiro:** no celular e no tablet o horário mostra **um dia por vez**, com abas Seg a Sex. No computador aparece a semana inteira em 5 colunas.
+- **Dia de hoje em destaque:** a aba e o dia atual ficam marcados. Aos sábados e domingos, abre a segunda-feira.
+- **Cor por disciplina** para reconhecer a aula rápido.
+- **Card do aluno no topo no celular**, em vez de escondido no fim da página (ponto fraco 10 do Passo 1).
+- **Dropdowns:** abrir um bloco fecha os outros. No computador o card do aluno é independente; no celular ele também entra nessa regra.
+- **Barra inferior** com Início, Horário e Sair (no SIGA atual, "Início" e "Meu Curso" parecem a mesma coisa).
+- **Textos de 14px ou mais** (os pequenos do print eram um ponto fraco) e ícones sempre acompanhados de texto.
+
+### Regras do protótipo
+
+- Só as telas Login, Início e Horário existem. Os outros atalhos (Notas, Faltas, Solicitações etc.) e o clique na foto do perfil mostram o aviso "Esta tela não faz parte do protótipo".
+- A foto do aluno vem de `img/roberto.png`. Enquanto esse arquivo não existir, aparecem as iniciais "RC".
+- O login guarda só uma marca temporária no navegador. Se você abrir `inicio.html` ou `horario.html` sem entrar, volta para o login.
+- As cores vêm dos prints: topo cinza-azulado, barra inferior escura, fundo lavanda, azul de destaque e faixa bege.
+
+### Suposições e limites
+
+- **Horários de sexta-feira inventados:** o print 7 corta a sexta. Só dá para ver 4 aulas de MET004 e 2 de ING086, então os horários dessa coluna (MET004 das 13:10 às 16:40 e ING086 das 16:50 às 18:30) são ilustrativos e precisam ser conferidos no SIGA.
+- **RA fictício** (`0000000000000`), para não repetir o dado real que aparece no print.
+- **Disciplinas e professores** vêm dos prints 2, 6 e 7. Os nomes dos professores foram escritos com letras maiúsculas e minúsculas, e não tudo em maiúsculas como no SIGA.
+- **Não foi testado com alunos reais.** O uso no celular foi verificado só com o navegador simulando telas pequenas.
+
+### Diferença em relação ao plano do Passo 7
+
+O plano previa 3 telas: Início com cartão "Hoje", Calendário "Minha semana" e Detalhe da aula ou avaliação. O protótipo entregue tem **Login, Início e Horário**. Por isso, **ainda faltam**: o cartão "Hoje" na tela inicial, as avaliações dentro do calendário, a tela de detalhe com lembrete e o botão de adicionar à agenda.
+
+### Arquivos do projeto
+
+```
+index.html      login
+inicio.html     tela inicial
+horario.html    horário das aulas
+css/style.css   estilos (cores, layout e responsividade)
+js/app.js       login de mentira, dropdowns, dia do horário e aviso rápido
+img/            coloque aqui a foto roberto.png
+desafio-fatec.md  este documento
+```
