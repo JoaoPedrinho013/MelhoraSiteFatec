@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#64748b">
+  <meta name="color-scheme" content="light dark">
   <title>Horário | SIGA</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/app.js" data-page="horario"></script>
@@ -16,6 +17,8 @@
       <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
       <symbol id="i-back" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
       <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3"/><path d="m16 8 4 4-4 4"/><path d="M20 12H9"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.7 6.7 0 0 0 9.8 9.8z"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
     </defs>
   </svg>
 
@@ -24,13 +27,19 @@
       <span class="brand__mark" aria-hidden="true">S</span>
       <span class="brand__name">siga</span>
     </a>
-    <a class="user" href="#" data-soon aria-label="Perfil de Roberto Carlos">
-      <span class="user__hi">Olá, <strong>Roberto</strong></span>
-      <span class="avatar">
-        <span aria-hidden="true">RC</span>
-        <img src="img/roberto.png" alt="Foto de Roberto Carlos" onerror="this.remove()">
-      </span>
-    </a>
+    <div class="topbar__actions">
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Modo escuro" aria-pressed="false">
+        <svg class="i i--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="i i--sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+      <a class="user" href="#" data-soon aria-label="Perfil de Roberto Carlos">
+        <span class="user__hi">Olá, <strong>Roberto</strong></span>
+        <span class="avatar">
+          <span aria-hidden="true">RC</span>
+          <img src="img/roberto.png" alt="Foto de Roberto Carlos" onerror="this.remove()">
+        </span>
+      </a>
+    </div>
   </header>
 
   <main class="page">

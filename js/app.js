@@ -1,11 +1,53 @@
 /* SIGA - protótipo: JS só para o que precisa de interação simples
-   (login de mentira, dropdowns, dia do horário e aviso rápido). */
+   (tema claro/escuro, login de mentira, dropdowns, dia do horário e aviso rápido). */
 
 (function () {
   var KEY = "siga-usuario";
   var page = document.currentScript && document.currentScript.dataset.page;
 
   document.documentElement.classList.add("js");
+
+  /* ---------- tema claro/escuro ----------
+     Roda já no <head> (antes de desenhar a página) para não piscar o tema errado.
+     Sem escolha salva, segue o tema do sistema. */
+  var THEME_KEY = "siga-tema";
+  var systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
+
+  function savedTheme() {
+    try { return localStorage.getItem(THEME_KEY); } catch (e) { return null; }
+  }
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", theme === "dark" ? "#1f2937" : "#64748b");
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(theme === "dark"));
+    });
+  }
+  function currentTheme() {
+    var saved = savedTheme();
+    if (saved === "dark" || saved === "light") return saved;
+    return systemDark && systemDark.matches ? "dark" : "light";
+  }
+  applyTheme(currentTheme());
+
+  function initTheme() {
+    applyTheme(currentTheme());
+    document.querySelectorAll("[data-theme-toggle]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* segue sem guardar */ }
+        applyTheme(next);
+      });
+    });
+    // Sem escolha salva, acompanha mudanças do tema do sistema
+    if (systemDark && systemDark.addEventListener) {
+      systemDark.addEventListener("change", function () {
+        var saved = savedTheme();
+        if (saved !== "dark" && saved !== "light") applyTheme(currentTheme());
+      });
+    }
+  }
 
   function getUser() {
     try { return sessionStorage.getItem(KEY); } catch (e) { return "roberto"; }
@@ -24,6 +66,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    initTheme();
     initLogin();
     initAccordions();
     initDayTabs();
