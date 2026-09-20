@@ -103,27 +103,28 @@ Na tela de Faltas, 5 das 6 disciplinas visíveis têm um alerta, mas sem legenda
 **Problema C - O aluno tem dificuldade de consultar a rotina do semestre (horário e avaliações) de forma rápida, principalmente pelo celular.**
 O horário repete informações e usa tabela larga (print 7), e a tela de Avaliações está vazia (print 4). **(Suposição):** no celular a situação é pior, mas não há print de celular para confirmar.
 
-### 2.2 Problema escolhido: **A**
+### 2.2 Problema escolhido: **C** (com foco no calendário de aulas)
 
 **Justificativa:**
-- **É o que tem mais consequência:** faltas em excesso podem levar à reprovação (**suposição:** pelo limite de frequência mínima), e é algo que o aluno não consegue desfazer depois.
-- **Tem evidência direta nos prints:** o alerta sem explicação aparece na maioria das disciplinas (print 6).
-- **Envolve várias telas**, então a solução também melhora a navegação (Início, Faltas, Notas) sem precisar mexer em tudo.
-- **É viável de prototipar**, porque usa dados que o SIGA já mostra (aulas, presenças, ausências, frequência).
+- **É uma necessidade do dia a dia:** o aluno consulta o horário toda semana, várias vezes, e não só em momentos de problema.
+- **Tem evidência direta nos prints:** o horário repete código, disciplina e professor em cada aula de 50 minutos, em uma tabela com até 6 colunas por dia (print 7). A tela de Avaliações está vazia e sem explicação (print 4).
+- **Os horários mudam de um dia para o outro** (print 7): por exemplo, segunda e terça começam às 15:00 e quarta e quinta começam às 13:10. Fica difícil decorar e é fácil se enganar.
+- **É viável de prototipar**, porque usa dados que o SIGA já mostra (disciplina, professor e horário) e a estrutura de telas já existente.
+- **Limite da análise:** todos os prints são de computador. **(Suposição):** no celular a situação é pior, mas não há print de celular para confirmar. Isso precisa ser verificado nas entrevistas e em testes.
 
 ---
 
 ## Passo 3 - 5 perguntas de entrevista
 
-Perguntas abertas, sem induzir resposta, sobre o problema escolhido (acompanhar faltas e a situação no semestre):
+Perguntas abertas, sem induzir resposta, sobre o problema escolhido (consultar o calendário de aulas e a rotina do semestre):
 
-1. **Me conta como foi a última vez que você abriu o SIGA. O que você queria ver e o que fez até conseguir?**
-2. **Como você acompanha quantas faltas você tem em cada disciplina? Que ferramentas ou hábitos você usa?**
-3. **Pense em um momento em que você ficou em dúvida sobre sua situação em alguma matéria. O que aconteceu e o que você fez depois?**
-4. **Quando você vê as informações de frequência no SIGA, o que você entende delas e o que você faz com essas informações?**
-5. **Se você pudesse mudar qualquer coisa na forma como recebe informações sobre suas faltas e notas, o que seria e por quê?**
+1. **Me conta como você descobre, no dia a dia, que horas suas aulas começam e terminam. O que você faz para isso?**
+2. **Pense na última vez que você precisou consultar seu horário ou uma prova. Onde você estava, o que usou e como foi?**
+3. **Como você fica sabendo das datas de provas e trabalhos? O que você faz para não esquecer?**
+4. **Me conta uma situação em que você se confundiu com um horário, uma aula ou uma data. O que aconteceu e o que você fez depois?**
+5. **Se você pudesse mudar qualquer coisa na forma como vê sua rotina de aulas, o que seria e por quê?**
 
-> **Dica de aplicação:** deixar o aluno falar, pedir "pode me dar um exemplo?" e "por que isso foi importante?", e não sugerir soluções durante a entrevista.
+> **Dica de aplicação:** deixar o aluno falar, pedir "pode me dar um exemplo?" e "por que isso foi importante?", e não sugerir soluções durante a entrevista. Vale perguntar também com qual aparelho ele costuma abrir o SIGA, sem sugerir a resposta.
 
 ---
 
@@ -131,30 +132,30 @@ Perguntas abertas, sem induzir resposta, sobre o problema escolhido (acompanhar 
 
 > **Atenção: esta persona é hipotética.** Foi criada a partir dos prints e de suposições, não de entrevistas reais. Ela deve ser **ajustada depois das entrevistas com alunos reais**.
 
-**Nome:** Larissa Menezes
+**Nome:** Roberto Carlos
 **Idade:** 21 anos
 **Curso:** Tecnologia em Desenvolvimento de Software Multiplataforma (3º semestre, turno da tarde)
 **Unidade:** FATEC (baseada no cartão do print 5, mas hipotética)
 
 **Rotina:**
-De manhã faz estágio em uma empresa de tecnologia. Almoça rápido e vai de ônibus para a faculdade, onde tem aula das 13h10 às 18h30. À noite faz os trabalhos em grupo pelo celular e pelo notebook. Aos fins de semana estuda e descansa.
+Trabalha de manhã em um estágio e vai de ônibus para a faculdade depois do almoço. Como os horários de aula mudam durante a semana (algumas aulas começam às 13h10 e outras às 15h), ele precisa reorganizar o trabalho e o transporte a cada dia. À noite faz os trabalhos em grupo, quase sempre pelo celular. Nos fins de semana estuda, descansa e joga com os amigos.
 
 **Objetivos:**
-- Ser aprovada em todas as disciplinas do semestre sem precisar de recuperação.
-- Continuar no estágio sem prejudicar a faculdade.
-- Saber sua situação sem depender de perguntar aos professores.
+- Chegar na hora certa em cada aula, sem perder o início nem se atrasar por causa do estágio.
+- Não ser pego de surpresa por provas e entregas.
+- Conciliar estágio e faculdade sem perder disciplinas.
 
 **Frustrações:**
-- Precisa entrar em várias telas do SIGA para saber como está.
-- Vê um alerta na frequência, mas não sabe o que ele significa nem quantas faltas ainda pode ter.
-- Faltou algumas vezes por causa do estágio e só percebeu o problema quando já estava difícil de corrigir.
-- Já ficou em dúvida sobre qual solicitação fazer para corrigir uma falta.
+- Para ver o horário, precisa abrir uma tabela grande, com informações repetidas, e procurar o dia.
+- Não encontra as provas do mês em um só lugar: a tela de Avaliações do SIGA aparece vazia.
+- Já chegou tarde (ou cedo demais) porque confundiu o horário de um dia com o de outro.
+- Acaba tirando print do horário ou anotando em outro aplicativo, porque abrir o SIGA é trabalhoso.
 
 **Comportamento com tecnologia:**
-Usa o celular para quase tudo (apps de banco, transporte, mensagens). Tem o hábito de usar aplicativos com notificações e resumos rápidos. Tem paciência baixa para sistemas que exigem muitos cliques. Usa o notebook para trabalhos, mas o SIGA quase sempre é acessado no celular, entre uma tarefa e outra.
+Usa o celular para quase tudo (aplicativo de banco, transporte, mensagens, agenda). Está acostumado com aplicativos que mostram o essencial logo ao abrir e com notificações. Tem pouca paciência com telas que exigem zoom, rolagem para o lado ou muitos cliques. Usa o notebook para programar, mas consulta o SIGA principalmente no celular, entre uma tarefa e outra. **(Suposição)**
 
 **Frase que a representa:**
-> "Eu só quero abrir o SIGA e saber, em cinco segundos, se está tudo bem ou se eu preciso me preocupar."
+> "Eu só preciso saber que horas é minha próxima aula e se tenho prova essa semana, sem ter que caçar na tabela."
 
 ---
 
@@ -162,11 +163,11 @@ Usa o celular para quase tudo (apps de banco, transporte, mensagens). Tem o háb
 
 **Frase-problema:**
 
-> **Larissa precisa de uma visão rápida e clara da sua frequência, mostrando o risco e quantas faltas ainda pode ter, porque hoje ela tem que abrir várias telas e os alertas do SIGA não explicam o que significam nem o que fazer.**
+> **Roberto precisa de um calendário de aulas e avaliações simples e rápido de consultar, principalmente pelo celular, porque hoje o horário aparece em uma tabela larga com informações repetidas e a tela de Avaliações está vazia, então ele acaba criando os próprios lembretes fora do SIGA.**
 
 **Pergunta "Como podemos...?":**
 
-> **Como podemos ajudar a Larissa a entender, logo que abre o SIGA, se está em risco por faltas e o que fazer a respeito, sem precisar navegar por várias telas?**
+> **Como podemos ajudar o Roberto a ver, em poucos segundos e pelo celular, quais são as próximas aulas e avaliações da semana?**
 
 ---
 
@@ -174,22 +175,22 @@ Usa o celular para quase tudo (apps de banco, transporte, mensagens). Tem o háb
 
 **Ideias simples**
 
-1. **Legenda no alerta de frequência:** ao tocar no triângulo, aparece um texto dizendo o que ele significa e qual é o limite mínimo.
-2. **Cores de semáforo com texto:** verde, amarelo e vermelho, sempre acompanhados de uma palavra ("Seguro", "Atenção", "Risco"), para não depender só de cor.
-3. **Barra de progresso de frequência:** uma barra por disciplina com a marca do limite mínimo, substituindo o número solto.
-4. **Correção de textos na tela de Faltas:** padronizar "Ausência", explicar "Aulas" (total ou já dadas) e remover a área cinza vazia dos cartões.
+1. **Juntar aulas seguidas da mesma disciplina em um só bloco:** em vez de 4 blocos iguais, aparece um só com "15:00 às 18:30".
+2. **Destacar o dia de hoje e a próxima aula:** o dia atual fica em evidência e a próxima aula aparece no topo da tela.
+3. **Mostrar um dia por vez no celular:** uma lista vertical do dia, com botões de "dia anterior" e "próximo dia" no lugar da tabela larga.
+4. **Cor por disciplina:** cada disciplina tem uma cor fixa, o que ajuda a reconhecer a aula rapidamente.
+5. **Mensagem clara na tela de Avaliações:** quando não houver provas, mostrar "Nenhuma avaliação neste mês" e um caminho para o calendário completo.
 
 **Ideias intermediárias**
 
-5. **Calculadora "quantas faltas ainda posso ter":** em cada disciplina, mostra o número de faltas restantes até o limite.
-6. **Resumo "Meu semestre" na tela inicial:** um cartão no topo com as disciplinas em risco, a próxima aula e a próxima avaliação.
-7. **Atalho para "Rev. Notas/Faltas" dentro da tela de Faltas:** um botão "Achei um erro nesta falta" que leva direto à solicitação.
-8. **Simulador "e se eu faltar?":** o aluno escolhe uma disciplina e um número de faltas e vê como ficaria a frequência.
+6. **Calendário único de aulas e avaliações:** visão de dia, semana e mês, com as provas marcadas ao lado das aulas.
+7. **Mostrar sala ou local da aula:** **(suposição)** se essa informação existir no sistema, mostrá-la junto do horário.
+8. **Lembretes de provas por notificação ou e-mail:** aviso alguns dias antes e na véspera de cada avaliação.
 
 **Ideias ousadas**
 
-9. **Alertas por notificação ou e-mail:** aviso quando a frequência de uma disciplina chegar perto do limite, ou antes de uma semana com muitas aulas.
-10. **Assistente de conversa dentro do SIGA:** o aluno pergunta "posso faltar na sexta?" e recebe a resposta com base nas faltas e no horário dele, sugerindo o que fazer se estiver em risco.
+9. **Exportar para a agenda do celular:** botão para levar o horário e as provas para o Google Agenda ou outro aplicativo de calendário (arquivo .ics ou link de assinatura).
+10. **Aplicativo instalável com acesso offline e widget:** o horário fica salvo no aparelho e um widget na tela inicial mostra a próxima aula, mesmo sem internet.
 
 ---
 
@@ -197,18 +198,18 @@ Usa o celular para quase tudo (apps de banco, transporte, mensagens). Tem o háb
 
 ### Ideia escolhida
 
-**Painel de frequência com calculadora de faltas** (junção das ideias 2, 5 e 6): um resumo na tela inicial que mostra, com cores e palavras, quais disciplinas estão em risco e quantas faltas ainda restam em cada uma.
+**Calendário "Minha semana"** (junção das ideias 1, 2, 3 e 6): uma tela que mostra o horário de forma mais limpa (aulas seguidas agrupadas), destaca hoje e a próxima aula, e coloca as avaliações no mesmo calendário. No celular, mostra um dia por vez.
 
 ### Justificativa
 
-- **Impacto:** responde direto ao problema (o aluno saber em segundos se está em risco). Também transforma um alerta sem explicação (print 6) em uma informação que dá para agir.
-- **Viabilidade:** usa dados que o SIGA já mostra (aulas, presença, ausência, frequência no print 6). A calculadora é uma conta simples. Não precisa de tecnologia nova. **(Suposição):** o limite mínimo de frequência precisa ser confirmado com a FATEC.
-- **Adequação ao SIGA:** encaixa na estrutura atual. O resumo entra na tela inicial (prints 1 e 5), os detalhes ficam em Faltas (print 6), e o atalho leva à solicitação já existente "Rev. Notas/Faltas" (print 1). Mantém o mesmo visual de cartões e a barra inferior.
+- **Impacto:** responde direto ao problema (ver aulas e provas em poucos segundos). Reduz o risco de se confundir com horários e de esquecer provas, e evita que o aluno precise criar lembretes fora do SIGA.
+- **Viabilidade:** usa dados que o SIGA já tem (disciplina, professor e horário, print 7). A ideia de agrupar aulas seguidas é uma regra simples de exibição. **(Suposição):** a data das avaliações precisa existir no sistema para alimentar o calendário. Isso deve ser confirmado, porque o print 4 mostra a tela vazia.
+- **Adequação ao SIGA:** mantém o mesmo padrão de cartões, o botão "Voltar" e a barra inferior, e substitui as telas de Horário e Avaliações (prints 7 e 4) sem criar um sistema novo. O acesso continua pelo menu "Meu curso" (print 1).
 
 ### As 3 telas necessárias
 
-1. **Início com resumo "Meu semestre":** a tela inicial ganha, no topo, um cartão com as disciplinas em risco de frequência e a próxima aula.
-2. **Faltas com semáforo e faltas restantes:** a tela de Faltas passa a mostrar, para cada disciplina, uma barra de frequência, a palavra de situação e quantas faltas ainda pode ter.
-3. **Detalhe da disciplina com simulador:** ao tocar em uma disciplina, mostra o histórico de faltas, o simulador "e se eu faltar?" e um botão para pedir revisão de faltas.
+1. **Início com cartão "Hoje":** a tela inicial ganha, no topo, um cartão com a próxima aula, o horário e as avaliações dos próximos dias.
+2. **Calendário "Minha semana":** mostra o horário por dia (um dia por vez no celular, semana inteira no computador), com aulas seguidas agrupadas, o dia de hoje em destaque e as avaliações marcadas.
+3. **Detalhe da aula ou avaliação:** ao tocar em um item, mostra a disciplina, o professor, o horário e a data, com botões para ativar lembrete e adicionar à agenda do celular.
 
-> **Próximos passos (fora deste documento):** validar a persona com entrevistas reais, confirmar o limite de frequência com a FATEC, e só depois desenhar e testar o protótipo com outro grupo.
+> **Próximos passos (fora deste documento):** validar a persona com entrevistas reais, confirmar se as datas de avaliações existem no sistema e só depois desenhar e testar o protótipo com outro grupo.
